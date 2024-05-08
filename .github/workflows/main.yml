@@ -29,7 +29,7 @@ jobs:
           echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login --username $REPO_NAME --password-stdin
           docker push $REPO_NAME/$IMAGE_NAME:$GITHUB_REF_NAME-$GITHUB-SHA 
 
-      - name: Manifet File
+      - name: Manifest File
         run: |
           git clone https://${{ secrets.AWS_GITHUB_USER }}:${{ secrets.AWS_GITHUB_TOKEN }}@github.com/$GITHUB_USERNAME/$GITOPS_REPO
           cd $GITOPS_REPO
